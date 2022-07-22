@@ -18,6 +18,11 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var contar = {};
+  for (i=0 ; i < string.length; i++) {
+    contar = contar + string[i];
+    
+  }
 }
 
 
@@ -25,7 +30,17 @@ function capToFront(s) {
   //Realiza una función que reciba como parámetro un string y mueva todas las letras mayúsculas
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
-  //Escribe tu código aquí
+  //Escribe tu código aquí:
+  var palabra = "";
+  for (i=0; i< s.length; i++) {
+    if (s.charAt(i).toUpperCase()) {
+      for (j=0; j < i ; j++) {
+        palabra = palabra.charAt(i);
+      }
+    }
+  }
+  return palabra;
+
 }
 
 
@@ -34,7 +49,7 @@ function asAmirror(str) {
   //Escribe una función que tome la frase recibida y la devuelva de modo tal que se pueda leer de izquierda a derecha 
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
-  //Escribe tu código aquí
+  //Escribe tu código aquí:
 } 
 
 
@@ -43,6 +58,12 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  var n1 = numero.toString().split("").reverse().join("");
+  if (numero.toString() === n1) {
+    return 'Es capicua';
+  } else {
+    return 'No es capicua'
+  }
 }
 
 
@@ -50,6 +71,13 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  var eliminado = cadena.split("");
+  for(i=0 ; i < eliminado.length; i++) {
+    if (eliminado[i] === 'a' || eliminado[i] === 'b' || eliminado[i] === 'c') {
+      eliminado[i] = "";
+    }
+  }
+  return eliminado.join("");
 }
 
 
