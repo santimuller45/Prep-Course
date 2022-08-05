@@ -10,6 +10,7 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  return Object.entries(objeto);
 }
 
 
@@ -18,11 +19,11 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
-  var contar = {};
-  for (i=0 ; i < string.length; i++) {
-    contar = contar + string[i];
-    
+  var obj = {};
+  for (var i in string) {
+    obj[string[i]] = (obj[string[i]] || 0) + 1;
   }
+  return obj;
 }
 
 
@@ -31,16 +32,16 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí:
-  var palabra = "";
-  for (i=0; i< s.length; i++) {
-    if (s.charAt(i).toUpperCase()) {
-      for (j=0; j < i ; j++) {
-        palabra = palabra.charAt(i);
-      }
+  var mayus = '';
+  var minus = '';
+  for (i=0; i < s.length; i++) {
+    if (s[i] === s[i].toUpperCase()) {
+      mayus = mayus + s[i];
+    } else if (s[i] === s[i].toLowerCase ()) {
+      minus = minus + s[i];
     }
   }
-  return palabra;
-
+  return mayus + minus;
 }
 
 
@@ -50,6 +51,9 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí:
+  var espejo = str.split(" ");
+  espejo = espejo.map((x) => x.split("").reverse().join(""));
+  return espejo.join(" ");
 } 
 
 
@@ -85,6 +89,8 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  var array2 = arr.sort((a,b) => a.length - b.length);
+  return (array2);
 }
 
 
@@ -93,7 +99,16 @@ function buscoInterseccion(arreglo1, arreglo2){
   //retornar un nuevo array con la intersección de ambos elementos. (Ej: [4,2,3] unión [1,3,4] = [3,4].
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
-  //Escribe tu código aquí  
+  //Escribe tu código aquí:
+  var array3 = []; 
+  for (i=0 ; i < arreglo1.length; i++) {
+    for(j=0 ; j < arreglo2.length; j++) {
+      if (arreglo1[i] === arreglo2[j]) {
+        array3.push(arreglo1[i]);
+      }
+    }
+  }
+  return array3;
 }
 
 
